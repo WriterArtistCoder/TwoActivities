@@ -19,6 +19,8 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        mReply = findViewById(R.id.editText_second);
+
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
@@ -27,11 +29,9 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     public void returnReply(View view) {
-        mReply = findViewById(R.id.editText_second);
-
         String reply = mReply.getText().toString();
         Intent replyIntent = new Intent();
-        replyIntent.putExtra(EXTRA_REPLY, replyIntent);
+        replyIntent.putExtra(EXTRA_REPLY, reply);
 
         setResult(RESULT_OK, replyIntent);
         finish();
